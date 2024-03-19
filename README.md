@@ -30,10 +30,11 @@ docker logs -f jenkins
 - Check this tutorial to know how to launch the pipeline using the Jenkinsfile: https://youtu.be/ZlHaC6sWPdw the video contains some issues resolving.
 
 ##### Important notes:
-Update in Jenkinsfile the Docker build stage command with your relevant data.
+- Update in Jenkinsfile the Docker build stage command with your relevant data.
 ```bash
-sh 'docker push username/imagename:tag'
+bat 'docker push username/imagename:tag'
 ```
+- In case you are working on linux, please update the 'bat' in each stage of the Jenkins file to 'sh'
 
 ## Deploying your application using minikube
 - Use the following commands in order to start your cluster minikube : 

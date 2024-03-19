@@ -32,12 +32,12 @@ pipeline{
         }
       }
 
-      stage ('Deploy the application to K8s cluster') {
+      /*stage ('Deploy the application to K8s cluster') {
         agent any
         steps {
-          bat 'docker push omarbensalah8/technical-assessment:latest'
+          
         }
-      }
+      }*/
 }
 	    
         post {
