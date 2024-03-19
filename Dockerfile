@@ -6,7 +6,7 @@ RUN mkdir -p /app
 
 WORKDIR /app
 
-COPY package.json /app
+COPY ./technical-assessment/package.json /app
 
 RUN npm install
 
