@@ -38,7 +38,7 @@ pipeline{
         withCredentials([
             string(credentialsId: 'kube_secret_token', variable: 'kube_secret_token')
             ]) {
-             bat 'kubectl create -f .\deployment-definition.yaml '
+             bat 'kubectl create -f deployment-definition.yaml'
              bat 'kubectl get deploy '
                }
             }
