@@ -13,14 +13,14 @@ pipeline{
       stage('Docker Build') {
     	agent any
           steps {
-          	sh 'docker build -t omarbensalah8/technical-assessment .'
+          	bat 'docker build -t omarbensalah8/technical-assessment .'
           }
          }
       stage('Docker Login') {
     	agent any
       steps {
       	withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-        	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+        	bat "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
         }
       }
     }
@@ -28,14 +28,14 @@ pipeline{
       stage ('Docker push to hub') {
         agent any
         steps {
-          sh 'docker push omarbensalah8/technical-assessment:latest'
+          bat 'docker push omarbensalah8/technical-assessment:latest'
         }
       }
 
       stage ('Deploy the application to K8s cluster') {
         agent any
         steps {
-          sh 'docker push omarbensalah8/technical-assessment:latest'
+          bat 'docker push omarbensalah8/technical-assessment:latest'
         }
       }
 }
