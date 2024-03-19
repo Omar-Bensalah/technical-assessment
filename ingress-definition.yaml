@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: technical-assessment-ingress
+  labels:
+    app: technical-assessment
+spec:
+  rules:
+    - host: technical.assessment
+      http: 
+        paths:
+        - path: /home
+          pathType: Prefix
+          backend:
+            service:
+              name: service-assessment
+              port:
+                number: 80

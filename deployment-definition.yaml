@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: technical-assessment
+  labels:
+    app: technical-assessment
+
+spec:
+  selector:
+    matchLabels:
+      app: technical-assessment
+  template:
+    metadata:
+      name: assessment-pod
+      labels:
+        app: technical-assessment
+    spec:
+      containers:
+        - name: technical-assessment
+          image: omarbensalah8/labphase-project-one
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 200m
+              memory: 32Mi
+            limits:
+              cpu: 400m
+              memory: 64Mi
+      
