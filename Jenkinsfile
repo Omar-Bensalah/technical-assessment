@@ -23,7 +23,8 @@ pipeline{
         	bat "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
         }
       }
-    }
+      }
+    
 
       stage ('Docker push to hub') {
         agent any
@@ -32,17 +33,17 @@ pipeline{
         }
       }
 
-      stage ('Deploy the application to K8s cluster') {
+      /*stage ('Deploy the application to K8s cluster') {
         agent any
         steps {
         withCredentials([
             string(credentialsId: 'kube_secret_token', variable: 'kube_secret_token')
             ]) {
-             bat 'kubectl create -f deployment-definition.yaml'
-             bat 'kubectl get deploy '
+             
                }
             }
-      }
+      }*/
+      
 }
 	    
         post {
