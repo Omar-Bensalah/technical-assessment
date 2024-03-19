@@ -10,7 +10,7 @@ COPY ./technical-assessment/package.json /app
 
 RUN npm install
 
-COPY . /app
+COPY ./technical-assessment/. /app
 
 RUN npm run build --prod
 
