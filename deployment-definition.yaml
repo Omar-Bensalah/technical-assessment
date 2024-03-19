@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: technical-assessment
-          image: omarbensalah8/labphase-project-one
+          image: omarbensalah8/technical-assessment
           ports:
             - containerPort: 80
           readinessProbe:
